@@ -1,15 +1,10 @@
-%%Directory
-
 %Set the directory
 dir = "/Users/camilog/Desktop/P_WAKE_TESTS"
-
-
-
 
 %Write the monitor file name and number
 fileName = "Monitor11"
 monitorNumber = 11;
-monitorRange = 1:32;
+channelRange = 1:32;
 
 %Write the time range you want to analyze
 start_day = "20 Jun 23";
@@ -28,7 +23,7 @@ cd(dir)
 epoch_length = bin * (1/1440);
 
 D = readCountData(fileName, monitorNumber,start_day,start_hour,end_day,end_hour);
-D.counts = D.counts(:,monitorRange); 
+D.counts = D.counts(:,channelRange); 
 
 start_time = strrep(start_day,' ','-');
 start_time = start_time + ' ' + start_hour; 
